@@ -1,0 +1,37 @@
+{
+  "name": "ayurveda-globe",
+  "version": "1.0.0",
+  "description": "MERN stack application for Ayurvedic travel & treatments in Sri Lanka",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspace=backend && npm run build --workspace=frontend",
+    "lint": "npm run lint --workspace=backend && npm run lint --workspace=frontend",
+    "test": "npm run test --workspace=backend && npm run test --workspace=frontend",
+    "clean": "npm run clean --workspace=backend && npm run clean --workspace=frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "keywords": [
+    "ayurveda",
+    "sri-lanka",
+    "travel",
+    "wellness",
+    "treatments",
+    "mern",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "Ayurveda Globe Team",
+  "license": "MIT"
+}

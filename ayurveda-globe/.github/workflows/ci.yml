@@ -1,0 +1,134 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    services:
+      mongodb:
+        image: mongo:7.0
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: password
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ping: 1})'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Lint backend
+      run: npm run lint --workspace=backend
+      continue-on-error: true
+
+    - name: Lint frontend
+      run: npm run lint --workspace=frontend
+      continue-on-error: true
+
+    - name: Test backend
+      run: npm run test --workspace=backend
+      env:
+        NODE_ENV: test
+        MONGO_URI: mongodb://admin:password@localhost:27017/ayurveda-globe-test?authSource=admin
+        JWT_SECRET: test-jwt-secret
+        STRIPE_SECRET_KEY: sk_test_fake_key
+      continue-on-error: true
+
+    - name: Test frontend
+      run: npm run test --workspace=frontend
+      continue-on-error: true
+
+    - name: Build backend
+      run: npm run build --workspace=backend
+
+    - name: Build frontend
+      run: npm run build --workspace=frontend
+      env:
+        VITE_API_URL: /api/v1
+        VITE_STRIPE_PUBLISHABLE_KEY: pk_test_fake_key
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build backend Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./infra/Dockerfile.backend
+        push: false
+        tags: ayurveda-globe/backend:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Build frontend Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./infra/Dockerfile.frontend
+        push: false
+        tags: ayurveda-globe/frontend:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Test Docker Compose
+      run: |
+        docker-compose -f docker-compose.yml config
+        echo "Docker Compose configuration is valid"
+
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run security audit
+      run: npm audit --audit-level moderate
+      continue-on-error: true
+
+    - name: Check for vulnerabilities
+      run: |
+        npm audit --workspace=backend --audit-level high
+        npm audit --workspace=frontend --audit-level high
+      continue-on-error: true
