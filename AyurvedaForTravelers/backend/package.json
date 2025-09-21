@@ -1,0 +1,59 @@
+{
+  "name": "ayurveda-for-travelers-backend",
+  "version": "1.0.0",
+  "description": "Backend API for AyurvedaForTravelers - Ayurvedic wellness platform for international travelers",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "echo 'Backend build completed'",
+    "test": "jest --detectOpenHandles",
+    "test:watch": "jest --watch --detectOpenHandles",
+    "test:coverage": "jest --coverage --detectOpenHandles",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "clean": "rm -rf node_modules dist"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "joi": "^17.11.0",
+    "stripe": "^14.9.0",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^7.1.5",
+    "express-mongo-sanitize": "^2.2.0",
+    "xss": "^1.0.14",
+    "hpp": "^0.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "keywords": [
+    "ayurveda",
+    "sri-lanka",
+    "travelers",
+    "wellness",
+    "treatments",
+    "packages",
+    "api",
+    "express",
+    "mongodb"
+  ],
+  "author": "AyurvedaForTravelers Team",
+  "license": "MIT"
+}

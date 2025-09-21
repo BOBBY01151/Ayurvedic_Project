@@ -1,0 +1,78 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "view": "Ansehen",
+    "more": "Mehr",
+    "less": "Weniger",
+    "close": "Schließen",
+    "submit": "Absenden",
+    "reset": "Zurücksetzen",
+    "clear": "Löschen",
+    "select": "Auswählen",
+    "required": "Erforderlich",
+    "optional": "Optional"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "treatments": "Behandlungen",
+    "packages": "Pakete",
+    "therapists": "Therapeuten",
+    "blog": "Blog",
+    "about": "Über Sri Lanka",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "profile": "Profil",
+    "orders": "Bestellungen",
+    "admin": "Admin"
+  },
+  "home": {
+    "title": "Authentisches Ayurveda-Wellness in Sri Lanka",
+    "subtitle": "Entdecken Sie traditionelle Heilbehandlungen und Wellness-Pakete für internationale Reisende",
+    "hero": {
+      "title": "Erleben Sie die alte Kunst des Ayurveda",
+      "subtitle": "Tauchen Sie ein in authentische Ayurveda-Behandlungen im Herzen Sri Lankas",
+      "cta": "Behandlungen erkunden"
+    }
+  },
+  "treatments": {
+    "title": "Ayurveda-Behandlungen",
+    "subtitle": "Entdecken Sie unsere traditionellen Heilbehandlungen",
+    "duration": "Dauer",
+    "price": "Preis",
+    "book_now": "Jetzt buchen",
+    "learn_more": "Mehr erfahren"
+  },
+  "packages": {
+    "title": "Wellness-Pakete",
+    "subtitle": "Komplette Wellness-Erlebnisse mit Behandlungen, Unterkunft und Mahlzeiten",
+    "duration": "Dauer",
+    "nights": "Nächte",
+    "days": "Tage",
+    "price_from": "Ab",
+    "includes": "Enthält",
+    "excludes": "Nicht enthalten",
+    "book_now": "Paket buchen"
+  },
+  "currency": {
+    "lkr": "Sri-Lanka-Rupie",
+    "usd": "US-Dollar",
+    "eur": "Euro"
+  },
+  "timezone": "Asia/Colombo",
+  "date_format": "dd. MMM yyyy",
+  "time_format": "HH:mm"
+}

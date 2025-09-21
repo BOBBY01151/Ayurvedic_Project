@@ -1,0 +1,208 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "more": "More",
+    "less": "Less",
+    "close": "Close",
+    "submit": "Submit",
+    "reset": "Reset",
+    "clear": "Clear",
+    "select": "Select",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "navigation": {
+    "home": "Home",
+    "treatments": "Treatments",
+    "packages": "Packages",
+    "therapists": "Therapists",
+    "blog": "Blog",
+    "about": "About Sri Lanka",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "orders": "Orders",
+    "admin": "Admin"
+  },
+  "home": {
+    "title": "Authentic Ayurvedic Wellness in Sri Lanka",
+    "subtitle": "Discover traditional healing treatments and wellness packages designed for international travelers",
+    "hero": {
+      "title": "Experience the Ancient Art of Ayurveda",
+      "subtitle": "Immerse yourself in authentic Ayurvedic treatments in the heart of Sri Lanka",
+      "cta": "Explore Treatments"
+    },
+    "features": {
+      "authentic": {
+        "title": "Authentic Treatments",
+        "description": "Traditional Ayurvedic treatments performed by certified practitioners"
+      },
+      "modern": {
+        "title": "Modern Facilities",
+        "description": "Contemporary wellness centers with state-of-the-art equipment"
+      },
+      "travelers": {
+        "title": "Traveler-Friendly",
+        "description": "Designed specifically for international visitors to Sri Lanka"
+      }
+    }
+  },
+  "treatments": {
+    "title": "Ayurvedic Treatments",
+    "subtitle": "Discover our range of traditional healing treatments",
+    "categories": {
+      "panchakarma": "Panchakarma",
+      "massage": "Massage Therapy",
+      "herbal": "Herbal Treatment",
+      "yoga": "Yoga & Meditation",
+      "consultation": "Consultation",
+      "detox": "Detoxification",
+      "rejuvenation": "Rejuvenation",
+      "pain": "Pain Management",
+      "stress": "Stress Relief",
+      "beauty": "Beauty & Wellness"
+    },
+    "duration": "Duration",
+    "price": "Price",
+    "book_now": "Book Now",
+    "learn_more": "Learn More"
+  },
+  "packages": {
+    "title": "Wellness Packages",
+    "subtitle": "Complete wellness experiences combining treatments, accommodation, and meals",
+    "types": {
+      "retreat": "Retreat Package",
+      "wellness": "Wellness Package",
+      "detox": "Detox Package",
+      "rejuvenation": "Rejuvenation Package",
+      "custom": "Custom Package"
+    },
+    "duration": "Duration",
+    "nights": "nights",
+    "days": "days",
+    "price_from": "From",
+    "includes": "Includes",
+    "excludes": "Excludes",
+    "book_now": "Book Package"
+  },
+  "therapists": {
+    "title": "Our Therapists",
+    "subtitle": "Meet our certified Ayurvedic practitioners",
+    "experience": "Experience",
+    "years": "years",
+    "specialties": "Specialties",
+    "languages": "Languages",
+    "consultation_fee": "Consultation Fee",
+    "book_consultation": "Book Consultation"
+  },
+  "booking": {
+    "title": "Book Your Treatment",
+    "select_treatment": "Select Treatment",
+    "select_therapist": "Select Therapist",
+    "select_date_time": "Select Date & Time",
+    "customer_info": "Customer Information",
+    "medical_info": "Medical Information",
+    "review_booking": "Review Booking",
+    "payment": "Payment",
+    "confirmation": "Confirmation",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "age": "Age",
+    "gender": "Gender",
+    "nationality": "Nationality",
+    "emergency_contact": "Emergency Contact",
+    "medical_conditions": "Medical Conditions",
+    "medications": "Current Medications",
+    "allergies": "Allergies",
+    "special_requirements": "Special Requirements",
+    "notes": "Additional Notes"
+  },
+  "blog": {
+    "title": "Ayurveda & Travel Blog",
+    "subtitle": "Insights, tips, and stories about Ayurveda and traveling in Sri Lanka",
+    "read_more": "Read More",
+    "published": "Published",
+    "author": "Author",
+    "tags": "Tags",
+    "category": "Category",
+    "share": "Share",
+    "related_posts": "Related Posts"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Ayurvedic treatments in Sri Lanka",
+    "search_placeholder": "Search FAQs..."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send_message": "Send Message",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Business Hours"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "email": "Email Address",
+      "password": "Password",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot password?",
+      "sign_in": "Sign In",
+      "no_account": "Don't have an account?",
+      "sign_up": "Sign up"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join our wellness community",
+      "name": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "phone": "Phone Number",
+      "country": "Country",
+      "terms": "I agree to the Terms and Conditions",
+      "create_account": "Create Account",
+      "have_account": "Already have an account?",
+      "sign_in": "Sign in"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "personal_info": "Personal Information",
+    "preferences": "Preferences",
+    "booking_history": "Booking History",
+    "edit_profile": "Edit Profile",
+    "change_password": "Change Password",
+    "logout": "Logout"
+  },
+  "currency": {
+    "lkr": "Sri Lankan Rupee",
+    "usd": "US Dollar",
+    "eur": "Euro"
+  },
+  "timezone": "Asia/Colombo",
+  "date_format": "MMM dd, yyyy",
+  "time_format": "h:mm a"
+}
