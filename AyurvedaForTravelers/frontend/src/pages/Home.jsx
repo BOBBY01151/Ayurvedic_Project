@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import HeroSection from '../components/HeroSection';
+import ParallaxHero from '../components/ParallaxHero';
 import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -44,10 +44,10 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="relative">
-        {/* Hero Section */}
-        <HeroSection />
+        {/* Parallax Hero Section */}
+        <ParallaxHero />
 
-        {/* Content Sections */}
+        {/* Content Sections - These will scroll over the fixed background */}
         <div className="relative z-20 bg-gradient-to-br from-[var(--ayurveda-cream)] via-white to-[var(--ayurveda-sage)]/10">
           {/* Services Section */}
           <ServicesSection />
