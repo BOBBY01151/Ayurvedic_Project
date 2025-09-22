@@ -13,6 +13,14 @@
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --border-color: #e5e7eb;
+  
+  /* Ayurveda Color Palette */
+  --ayurveda-green: #4a7c59;
+  --ayurveda-sage: #87a96b;
+  --ayurveda-earth: #d4b996;
+  --ayurveda-gold: #c9a876;
+  --ayurveda-cream: #faf8f5;
+  --ayurveda-teal: #5c8a89;
 }
 
 /* Base Styles */
@@ -186,6 +194,19 @@
   .shadow-strong {
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 50px -10px rgba(0, 0, 0, 0.1);
   }
+}
+
+/* Glass Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Custom Animations */
