@@ -14,10 +14,10 @@ export default function HeroSection() {
         <div 
           className="w-full h-full object-cover bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1717657337702-0cf65be367a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxheXVydmVkaWMlMjBoZXJicyUyMG1lZGl0YXRpb24lMjBwZWFjZWZ1bHxlbnwxfHx8fDE3NTgxMDc5Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral')"
+            backgroundImage: "url('/images/pexels-cottonbro-5416013.jpg')"
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--ayurveda-green)]/30 via-[var(--ayurveda-sage)]/20 to-[var(--ayurveda-teal)]/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--ayurveda-green)]/15 via-[var(--ayurveda-sage)]/10 to-[var(--ayurveda-teal)]/20"></div>
       </div>
 
       {/* Floating Elements */}
