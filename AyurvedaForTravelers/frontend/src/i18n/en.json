@@ -39,6 +39,11 @@
     "orders": "Orders",
     "admin": "Admin"
   },
+  "about": {
+    "title": "About Sri Lanka",
+    "subtitle": "Discover the beautiful island nation and its rich Ayurvedic heritage",
+    "description": "Sri Lanka, known as the Pearl of the Indian Ocean, is home to ancient Ayurvedic traditions that have been preserved and practiced for over 3,000 years. Our wellness center combines this traditional knowledge with modern facilities to provide authentic healing experiences for travelers from around the world."
+  },
   "home": {
     "title": "Authentic Ayurvedic Wellness in Sri Lanka",
     "subtitle": "Discover traditional healing treatments and wellness packages designed for international travelers",

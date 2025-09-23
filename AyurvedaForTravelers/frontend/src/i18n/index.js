@@ -36,6 +36,10 @@ i18n
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
+    
+    react: {
+      useSuspense: false,
+    },
   })
 
 export default i18n

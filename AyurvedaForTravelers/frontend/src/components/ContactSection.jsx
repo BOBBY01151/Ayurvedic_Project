@@ -15,7 +15,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Card, CardContent } from './ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { Select, SelectItem } from './ui/select';
 
 const contactInfo = [
   {
@@ -308,17 +308,17 @@ export default function ContactSection() {
                       <label className="block text-sm font-medium text-[var(--ayurveda-green)] mb-2">
                         Service Interested In
                       </label>
-                      <Select onValueChange={handleSelectChange}>
-                        <SelectTrigger className="glass border-[var(--ayurveda-green)]/30 focus:border-[var(--ayurveda-green)]">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {services.map((service) => (
-                            <SelectItem key={service} value={service.toLowerCase().replace(/\s+/g, '-')}>
-                              {service}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
+                      <Select 
+                        onValueChange={handleSelectChange}
+                        className="glass border-[var(--ayurveda-green)]/30 focus:border-[var(--ayurveda-green)]"
+                        defaultValue=""
+                      >
+                        <SelectItem value="" disabled>Select a service</SelectItem>
+                        {services.map((service) => (
+                          <SelectItem key={service} value={service.toLowerCase().replace(/\s+/g, '-')}>
+                            {service}
+                          </SelectItem>
+                        ))}
                       </Select>
                     </motion.div>
                   </div>

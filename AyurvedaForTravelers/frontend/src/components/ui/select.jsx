@@ -1,7 +1,16 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-const Select = React.forwardRef(({ className, children, ...props }, ref) => {
+const Select = React.forwardRef(({ className, children, onValueChange, ...props }, ref) => {
+  const handleChange = (e) => {
+    if (onValueChange) {
+      onValueChange(e.target.value);
+    }
+    if (props.onChange) {
+      props.onChange(e);
+    }
+  };
+
   return (
     <select
       className={cn(
@@ -9,6 +18,7 @@ const Select = React.forwardRef(({ className, children, ...props }, ref) => {
         className
       )}
       ref={ref}
+      onChange={handleChange}
       {...props}
     >
       {children}

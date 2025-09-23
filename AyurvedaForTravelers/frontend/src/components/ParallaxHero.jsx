@@ -18,7 +18,7 @@ export default function ParallaxHero() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--ayurveda-green)]/10 via-[var(--ayurveda-sage)]/05 to-[var(--ayurveda-teal)]/15"></div>
-        <div className="absolute inset-0 bg-black/0"></div>
+        <div className="absolute inset-0 bg-white/10"></div>
       </div>
 
       {/* Hero Content - This scrolls normally */}
