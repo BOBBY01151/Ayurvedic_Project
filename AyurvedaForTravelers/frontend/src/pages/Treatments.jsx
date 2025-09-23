@@ -121,28 +121,28 @@ export default function Treatments() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--ayurveda-green)] mb-4">
             {t('treatments.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--ayurveda-green)]/70 max-w-2xl mx-auto">
             {t('treatments.subtitle')}
           </p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="glass-strong rounded-xl shadow-soft p-6 mb-8 border border-white/20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[var(--ayurveda-green)]/60" />
               <input
                 type="text"
                 placeholder="Search treatments..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full pl-10 pr-4 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.search}
                 onChange={(e) => setFilters({ ...filters, search: e.target.value })}
               />
@@ -150,7 +150,7 @@ export default function Treatments() {
 
             {/* Category Filter */}
             <select
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
               value={filters.category}
               onChange={(e) => setFilters({ ...filters, category: e.target.value })}
             >
@@ -166,18 +166,18 @@ export default function Treatments() {
               <input
                 type="number"
                 placeholder="Min"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.priceRange[0]}
                 onChange={(e) => setFilters({ 
                   ...filters, 
                   priceRange: [parseInt(e.target.value) || 0, filters.priceRange[1]] 
                 })}
               />
-              <span className="text-gray-500">-</span>
+              <span className="text-[var(--ayurveda-green)]/60">-</span>
               <input
                 type="number"
                 placeholder="Max"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.priceRange[1]}
                 onChange={(e) => setFilters({ 
                   ...filters, 
@@ -188,7 +188,7 @@ export default function Treatments() {
 
             {/* Duration Filter */}
             <select
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500"
+              className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
               value={filters.duration}
               onChange={(e) => setFilters({ ...filters, duration: e.target.value })}
             >
@@ -204,33 +204,33 @@ export default function Treatments() {
         {/* Treatments Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTreatments.map((treatment) => (
-            <div key={treatment.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-emerald-200 flex items-center justify-center">
-                <Leaf className="h-16 w-16 text-emerald-600" />
+            <div key={treatment.id} className="glass-strong rounded-xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-white/20 hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-[var(--ayurveda-green)]/20 to-[var(--ayurveda-sage)]/20 flex items-center justify-center">
+                <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]" />
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-[var(--ayurveda-green)]">
                     {treatment.name}
                   </h3>
                   <div className="flex items-center">
-                    <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                    <span className="ml-1 text-sm text-gray-600">
+                    <Star className="h-4 w-4 text-[var(--ayurveda-gold)] fill-current" />
+                    <span className="ml-1 text-sm text-[var(--ayurveda-green)]/70">
                       {treatment.rating} ({treatment.reviews})
                     </span>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4 line-clamp-2">
+                <p className="text-[var(--ayurveda-green)]/70 mb-4 line-clamp-2">
                   {treatment.description}
                 </p>
                 
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <div className="flex items-center justify-between text-sm text-[var(--ayurveda-green)]/60 mb-4">
                   <div className="flex items-center">
                     <Clock className="h-4 w-4 mr-1" />
                     {treatment.duration} min
                   </div>
-                  <span className="text-lg font-semibold text-emerald-600">
+                  <span className="text-lg font-semibold text-[var(--ayurveda-green)]">
                     ${treatment.price}
                   </span>
                 </div>
@@ -238,13 +238,13 @@ export default function Treatments() {
                 <div className="flex space-x-2">
                   <Link
                     to={`/treatments/${treatment.id}`}
-                    className="flex-1 text-center py-2 text-emerald-600 border border-emerald-600 rounded-md hover:bg-emerald-50 transition-colors"
+                    className="flex-1 text-center py-2 text-[var(--ayurveda-green)] border border-[var(--ayurveda-green)] rounded-lg hover:bg-[var(--ayurveda-cream)] transition-colors"
                   >
                     Learn More
                   </Link>
                   <Link
                     to={`/booking?treatment=${treatment.id}`}
-                    className="flex-1 text-center py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors"
+                    className="flex-1 text-center py-2 bg-[var(--ayurveda-green)] text-white rounded-lg hover:bg-[var(--ayurveda-sage)] transition-colors"
                   >
                     Book Now
                   </Link>
@@ -256,9 +256,9 @@ export default function Treatments() {
 
         {filteredTreatments.length === 0 && (
           <div className="text-center py-12">
-            <Leaf className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No treatments found</h3>
-            <p className="text-gray-600">Try adjusting your filters to see more results.</p>
+            <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]/40 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-[var(--ayurveda-green)] mb-2">No treatments found</h3>
+            <p className="text-[var(--ayurveda-green)]/70">Try adjusting your filters to see more results.</p>
           </div>
         )}
       </div>
