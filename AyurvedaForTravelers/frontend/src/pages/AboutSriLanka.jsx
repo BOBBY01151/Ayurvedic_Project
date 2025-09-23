@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import Footer from '../components/Footer'
 
 export default function AboutSriLanka() {
   const { t } = useTranslation()
@@ -15,6 +16,9 @@ export default function AboutSriLanka() {
           </p>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

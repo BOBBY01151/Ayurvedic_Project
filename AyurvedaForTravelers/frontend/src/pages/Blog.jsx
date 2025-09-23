@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { BookOpen } from 'lucide-react'
+import Footer from '../components/Footer'
 
 export default function Blog() {
   const { t } = useTranslation()
@@ -17,6 +18,9 @@ export default function Blog() {
           </p>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

@@ -10,7 +10,7 @@ export default function ParallaxHero() {
   return (
     <>
       {/* Fixed Background - Only this stays locked */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed top-16 left-0 right-0 bottom-0 z-0">
         <div 
           className="w-full h-full object-cover bg-cover bg-center"
           style={{

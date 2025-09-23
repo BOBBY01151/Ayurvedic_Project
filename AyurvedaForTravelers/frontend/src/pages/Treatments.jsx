@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Clock, Star, Filter, Search, Leaf } from 'lucide-react'
+import Footer from '../components/Footer'
 
 export default function Treatments() {
   const { t } = useTranslation()
@@ -262,6 +263,9 @@ export default function Treatments() {
           </div>
         )}
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

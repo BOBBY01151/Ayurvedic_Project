@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Users } from 'lucide-react'
+import Footer from '../components/Footer'
 
 export default function Therapists() {
   const { t } = useTranslation()
@@ -17,6 +18,9 @@ export default function Therapists() {
           </p>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

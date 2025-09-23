@@ -5,6 +5,7 @@ import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -38,12 +39,12 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--ayurveda-green)] via-[var(--ayurveda-sage)] to-[var(--ayurveda-earth)] origin-left z-50"
+        className="fixed top-16 left-0 right-0 h-1 bg-gradient-to-r from-[var(--ayurveda-green)] via-[var(--ayurveda-sage)] to-[var(--ayurveda-earth)] origin-left z-40"
         style={{ scaleX }}
       />
 
       {/* Main Content */}
-      <main className="relative">
+      <div className="relative pt-16">
         {/* Parallax Hero Section */}
         <ParallaxHero />
 
@@ -61,7 +62,7 @@ export default function Home() {
           {/* Contact Section */}
           <ContactSection />
         </div>
-      </main>
+      </div>
 
       {/* Floating Elements for Extra Polish */}
       <motion.div
@@ -116,6 +117,9 @@ export default function Home() {
           background: `radial-gradient(circle, var(--ayurveda-teal)/15, transparent)`
         }}
       />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

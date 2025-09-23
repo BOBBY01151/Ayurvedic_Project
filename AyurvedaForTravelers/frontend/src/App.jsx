@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import Footer from './components/Footer'
 
 // Pages
 import Home from './pages/Home'
@@ -29,10 +28,10 @@ import AdminArticles from './pages/AdminArticles'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
@@ -79,8 +78,6 @@ function App() {
           } />
         </Routes>
       </main>
-      
-      <Footer />
     </div>
   )
 }

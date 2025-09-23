@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Eye, EyeOff, Mail, Lock, Leaf } from 'lucide-react'
 import { login } from '../store/slices/authSlice'
 import toast from 'react-hot-toast'
+import Footer from '../components/Footer'
 
 export default function Login() {
   const { t } = useTranslation()
@@ -161,6 +162,9 @@ export default function Login() {
           </form>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

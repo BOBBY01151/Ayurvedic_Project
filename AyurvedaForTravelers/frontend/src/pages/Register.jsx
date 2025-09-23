@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { UserPlus } from 'lucide-react'
+import Footer from '../components/Footer'
 
 export default function Register() {
   const { t } = useTranslation()
@@ -17,6 +18,9 @@ export default function Register() {
           </p>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
