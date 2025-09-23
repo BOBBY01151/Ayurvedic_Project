@@ -57,7 +57,7 @@ export default function Header() {
           </motion.div>
 
           {/* Desktop Navigation Tabs */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="flex items-center space-x-1">
             {navigation.map((item) => (
               <motion.div
                 key={item.href}
@@ -97,9 +97,9 @@ export default function Header() {
           </div>
 
           {/* Right Side */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             {/* Contact Info */}
-            <div className={`flex items-center space-x-2 text-sm transition-colors duration-500 ${
+            <div className={`hidden sm:flex items-center space-x-2 text-sm transition-colors duration-500 ${
               scrolled ? 'text-[var(--ayurveda-green)]' : 'text-white'
             }`}>
               <Phone className="w-4 h-4" />
@@ -107,37 +107,57 @@ export default function Header() {
             </div>
 
             {/* User Menu */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 md:space-x-2">
+              {/* Cart Button */}
               <Link
                 to="/orders"
-                className={`p-2 transition-colors ${
+                className={`p-2 transition-colors relative ${
                   scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
                 }`}
               >
-                <ShoppingBag className="h-5 w-5" />
+                <ShoppingBag className="h-4 w-4 md:h-5 md:w-5" />
+                {/* Cart badge */}
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
               </Link>
+
+              {/* Call Button */}
+              <a
+                href="tel:+94111234567"
+                className={`flex items-center space-x-1 p-2 transition-colors text-sm ${
+                  scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
+                }`}
+              >
+                <Phone className="h-4 w-4" />
+                <span className="hidden lg:inline text-sm">Call</span>
+              </a>
+
+              {/* Login Button */}
               <Link
                 to="/login"
-                className={`flex items-center space-x-1 transition-colors ${
+                className={`flex items-center space-x-1 transition-colors text-sm ${
                   scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
                 }`}
               >
-                <User className="h-5 w-5" />
-                <span className="text-sm">Login</span>
+                <User className="h-4 w-4 md:h-5 md:w-5" />
+                <span className="hidden sm:inline text-sm">Login</span>
               </Link>
-              <Button className={`transition-colors duration-500 text-white ${
+
+              {/* Sign Up Button */}
+              <Button size="sm" className={`transition-colors duration-500 text-white text-xs md:text-sm ${
                 scrolled 
                   ? 'bg-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-sage)]' 
                   : 'bg-[var(--ayurveda-gold)] hover:bg-[var(--ayurveda-earth)]'
               }`}>
                 <Link to="/register">Sign Up</Link>
               </Button>
-              <Button className={`transition-colors duration-500 text-white ${
+
+              {/* Book Appointment Button */}
+              <Button size="sm" className={`transition-colors duration-500 text-white text-xs md:text-sm ${
                 scrolled 
                   ? 'bg-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-sage)]' 
                   : 'bg-[var(--ayurveda-gold)] hover:bg-[var(--ayurveda-earth)]'
               }`}>
-                <Link to="/booking">Book Appointment</Link>
+                <Link to="/booking">Book Now</Link>
               </Button>
             </div>
           </div>
@@ -220,6 +240,34 @@ export default function Header() {
             
             {/* Mobile User Actions */}
             <div className="px-3 py-2 space-y-2">
+              {/* Cart Button */}
+              <Link
+                to="/orders"
+                onClick={() => setIsOpen(false)}
+                className={`flex items-center justify-center space-x-2 w-full text-center py-2 text-sm border rounded-md transition-colors relative ${
+                  scrolled 
+                    ? 'text-[var(--ayurveda-green)] border-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-cream)]' 
+                    : 'text-white border-white/30 hover:bg-white/10'
+                }`}
+              >
+                <ShoppingBag className="w-4 h-4" />
+                <span>My Cart (3)</span>
+              </Link>
+
+              {/* Call Button */}
+              <a
+                href="tel:+94111234567"
+                className={`flex items-center justify-center space-x-2 w-full text-center py-2 text-sm border rounded-md transition-colors ${
+                  scrolled 
+                    ? 'text-[var(--ayurveda-green)] border-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-cream)]' 
+                    : 'text-white border-white/30 hover:bg-white/10'
+                }`}
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Now</span>
+              </a>
+
+              {/* Login Button */}
               <Link
                 to="/login"
                 onClick={() => setIsOpen(false)}
@@ -231,6 +279,8 @@ export default function Header() {
               >
                 Login
               </Link>
+
+              {/* Sign Up Button */}
               <Button className={`w-full text-white transition-colors duration-500 ${
                 scrolled 
                   ? 'bg-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-sage)]' 
@@ -238,6 +288,8 @@ export default function Header() {
               }`}>
                 <Link to="/register" onClick={() => setIsOpen(false)}>Sign Up</Link>
               </Button>
+
+              {/* Book Appointment Button */}
               <Button className={`w-full text-white transition-colors duration-500 ${
                 scrolled 
                   ? 'bg-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-sage)]' 
