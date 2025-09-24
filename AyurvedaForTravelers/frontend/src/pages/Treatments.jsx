@@ -117,20 +117,36 @@ export default function Treatments() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10 flex items-center justify-center pt-20">
+      <div 
+        className="min-h-screen flex items-center justify-center pt-20"
+        style={{
+          backgroundImage: "url('/images/untitled-design.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading treatments...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--ayurveda-green)] mx-auto mb-4"></div>
+          <p className="text-[var(--ayurveda-green)]">Loading treatments...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+    <div 
+      className="min-h-screen overflow-x-hidden"
+      style={{
+        backgroundImage: "url('/images/untitled-design.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8 bg-transparent">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 bg-transparent">
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--ayurveda-green)] mb-4">
             {t('treatments.title')}
           </h1>
@@ -217,7 +233,7 @@ export default function Treatments() {
         </div>
 
         {/* Filters */}
-        <div className="glass-strong rounded-xl shadow-soft p-6 mb-8 border border-white/20">
+        <div className="p-6 mb-8 bg-transparent">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="relative">
@@ -225,7 +241,7 @@ export default function Treatments() {
               <input
                 type="text"
                 placeholder="Search treatments..."
-                className="w-full pl-10 pr-4 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
+                className="w-full pl-10 pr-4 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.search}
                 onChange={(e) => setFilters({ ...filters, search: e.target.value })}
               />
@@ -233,7 +249,7 @@ export default function Treatments() {
 
             {/* Category Filter */}
             <select
-              className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
+              className="w-full px-3 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
               value={filters.category}
               onChange={(e) => setFilters({ ...filters, category: e.target.value })}
             >
@@ -249,7 +265,7 @@ export default function Treatments() {
               <input
                 type="number"
                 placeholder="Min"
-                className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
+                className="w-full px-3 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.priceRange[0]}
                 onChange={(e) => setFilters({ 
                   ...filters, 
@@ -260,7 +276,7 @@ export default function Treatments() {
               <input
                 type="number"
                 placeholder="Max"
-                className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
+                className="w-full px-3 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)] placeholder-[var(--ayurveda-green)]/50"
                 value={filters.priceRange[1]}
                 onChange={(e) => setFilters({ 
                   ...filters, 
@@ -271,7 +287,7 @@ export default function Treatments() {
 
             {/* Duration Filter */}
             <select
-              className="w-full px-3 py-2 glass border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
+              className="w-full px-3 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-lg focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] text-[var(--ayurveda-green)]"
               value={filters.duration}
               onChange={(e) => setFilters({ ...filters, duration: e.target.value })}
             >
@@ -285,13 +301,13 @@ export default function Treatments() {
         </div>
 
         {/* Treatments Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 bg-transparent">
           {filteredTreatments.map((treatment) => (
-            <div key={treatment.id} className="glass-strong rounded-xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-white/20 hover:scale-105 w-full">
-              <div className="h-48 bg-gradient-to-br from-[var(--ayurveda-green)]/20 to-[var(--ayurveda-sage)]/20 flex items-center justify-center">
+            <div key={treatment.id} className="bg-transparent rounded-xl overflow-hidden transition-all duration-300 border border-[var(--ayurveda-green)]/20 hover:scale-105 w-full">
+              <div className="h-48 bg-transparent flex items-center justify-center">
                 <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]" />
               </div>
-              <div className="p-6">
+              <div className="p-6 bg-transparent">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-[var(--ayurveda-green)]">
                     {treatment.name}
@@ -321,7 +337,7 @@ export default function Treatments() {
                 <div className="flex space-x-2">
                   <Link
                     to={`/treatments/${treatment.id}`}
-                    className="flex-1 text-center py-2 text-[var(--ayurveda-green)] border border-[var(--ayurveda-green)] rounded-lg hover:bg-[var(--ayurveda-cream)] transition-colors"
+                    className="flex-1 text-center py-2 text-[var(--ayurveda-green)] border border-[var(--ayurveda-green)] rounded-lg hover:bg-[var(--ayurveda-green)]/10 transition-colors"
                   >
                     Learn More
                   </Link>
