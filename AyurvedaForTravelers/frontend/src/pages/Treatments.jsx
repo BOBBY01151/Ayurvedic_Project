@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Clock, Star, Filter, Search, Leaf } from 'lucide-react'
+import { Clock, Star, Filter, Search, Leaf, Heart, Zap, Shield, Sun, Moon, Flower, TreePine } from 'lucide-react'
 import Footer from '../components/Footer'
 
 export default function Treatments() {
@@ -14,6 +14,11 @@ export default function Treatments() {
     duration: '',
     search: ''
   })
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   useEffect(() => {
     // Simulate API call
@@ -112,7 +117,7 @@ export default function Treatments() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10 flex items-center justify-center pt-20">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading treatments...</p>
@@ -122,16 +127,93 @@ export default function Treatments() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--ayurveda-green)] mb-4">
             {t('treatments.title')}
           </h1>
           <p className="text-xl text-[var(--ayurveda-green)]/70 max-w-2xl mx-auto">
             {t('treatments.subtitle')}
           </p>
+        </div>
+
+        {/* Animated Ayurvedic Icons Section */}
+        <div className="relative overflow-hidden mb-8 h-24">
+          <div className="absolute inset-0 flex items-center">
+            {/* First set of icons */}
+            <div className="flex items-center space-x-8 animate-scroll-left">
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <Leaf className="h-8 w-8" />
+                <span className="text-sm font-medium">Natural Healing</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-earth)]/80">
+                <Heart className="h-8 w-8" />
+                <span className="text-sm font-medium">Holistic Wellness</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-sage)]/80">
+                <Zap className="h-8 w-8" />
+                <span className="text-sm font-medium">Energy Balance</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-gold)]/80">
+                <Shield className="h-8 w-8" />
+                <span className="text-sm font-medium">Immune Support</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <Sun className="h-8 w-8" />
+                <span className="text-sm font-medium">Vitality</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-sage)]/80">
+                <Moon className="h-8 w-8" />
+                <span className="text-sm font-medium">Peace & Calm</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-earth)]/80">
+                <Flower className="h-8 w-8" />
+                <span className="text-sm font-medium">Herbal Therapy</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <TreePine className="h-8 w-8" />
+                <span className="text-sm font-medium">Ancient Wisdom</span>
+              </div>
+            </div>
+            
+            {/* Duplicate set for seamless loop */}
+            <div className="flex items-center space-x-8 animate-scroll-left">
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <Leaf className="h-8 w-8" />
+                <span className="text-sm font-medium">Natural Healing</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-earth)]/80">
+                <Heart className="h-8 w-8" />
+                <span className="text-sm font-medium">Holistic Wellness</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-sage)]/80">
+                <Zap className="h-8 w-8" />
+                <span className="text-sm font-medium">Energy Balance</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-gold)]/80">
+                <Shield className="h-8 w-8" />
+                <span className="text-sm font-medium">Immune Support</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <Sun className="h-8 w-8" />
+                <span className="text-sm font-medium">Vitality</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-sage)]/80">
+                <Moon className="h-8 w-8" />
+                <span className="text-sm font-medium">Peace & Calm</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-earth)]/80">
+                <Flower className="h-8 w-8" />
+                <span className="text-sm font-medium">Herbal Therapy</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[var(--ayurveda-green)]/80">
+                <TreePine className="h-8 w-8" />
+                <span className="text-sm font-medium">Ancient Wisdom</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Filters */}
@@ -203,9 +285,9 @@ export default function Treatments() {
         </div>
 
         {/* Treatments Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {filteredTreatments.map((treatment) => (
-            <div key={treatment.id} className="glass-strong rounded-xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-white/20 hover:scale-105">
+            <div key={treatment.id} className="glass-strong rounded-xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-white/20 hover:scale-105 w-full">
               <div className="h-48 bg-gradient-to-br from-[var(--ayurveda-green)]/20 to-[var(--ayurveda-sage)]/20 flex items-center justify-center">
                 <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]" />
               </div>

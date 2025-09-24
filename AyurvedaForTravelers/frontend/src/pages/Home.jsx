@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--ayurveda-cream)] to-[var(--ayurveda-sage)]/10">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-16 left-0 right-0 h-1 bg-gradient-to-r from-[var(--ayurveda-green)] via-[var(--ayurveda-sage)] to-[var(--ayurveda-earth)] origin-left z-40"
@@ -49,7 +49,7 @@ export default function Home() {
         <ParallaxHero />
 
         {/* Content Sections - These will scroll over the fixed background */}
-        <div className="relative z-20 bg-gradient-to-br from-[var(--ayurveda-cream)] via-white/70 to-[var(--ayurveda-sage)]/10">
+        <div className="relative z-20 bg-white">
           {/* Services Section */}
           <ServicesSection />
 
