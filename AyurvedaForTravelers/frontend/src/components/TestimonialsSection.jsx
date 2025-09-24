@@ -61,25 +61,6 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonials" ref={ref} className="py-20 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <motion.div
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(45deg, var(--ayurveda-green) 25%, transparent 25%), 
-                             linear-gradient(-45deg, var(--ayurveda-sage) 25%, transparent 25%)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}

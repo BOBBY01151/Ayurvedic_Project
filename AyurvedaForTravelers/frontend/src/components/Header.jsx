@@ -49,7 +49,7 @@ export default function Header() {
                 <Leaf className="h-6 w-6 text-white" />
               </div>
               <span className={`text-xl font-semibold transition-colors duration-500 ${
-                scrolled ? 'text-[var(--ayurveda-green)]' : 'text-white'
+                scrolled ? 'text-black' : 'text-black'
               }`}>
                 AyurvedaForTravelers
               </span>
@@ -70,11 +70,11 @@ export default function Header() {
                   className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     isActive(item.href)
                       ? scrolled 
-                        ? 'text-[var(--ayurveda-green)] bg-[var(--ayurveda-cream)] shadow-sm' 
-                        : 'text-[var(--ayurveda-gold)] bg-white/20 shadow-sm'
+                        ? 'text-black bg-gray-100 shadow-sm' 
+                        : 'text-[var(--ayurveda-green)] bg-black/20 shadow-sm'
                       : scrolled 
-                        ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)] hover:bg-[var(--ayurveda-cream)]/50' 
-                        : 'text-white hover:text-[var(--ayurveda-gold)] hover:bg-white/10'
+                        ? 'text-black hover:text-gray-700 hover:bg-gray-100/50' 
+                        : 'text-black hover:text-[var(--ayurveda-green)] hover:bg-black/10'
                   }`}
                 >
                   {item.name}
@@ -84,8 +84,8 @@ export default function Header() {
                       layoutId="activeTab"
                       className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
                         scrolled 
-                          ? 'bg-[var(--ayurveda-green)]' 
-                          : 'bg-[var(--ayurveda-gold)]'
+                          ? 'bg-black' 
+                          : 'bg-[var(--ayurveda-green)]'
                       }`}
                       initial={false}
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -100,7 +100,7 @@ export default function Header() {
           <div className="flex items-center space-x-2 md:space-x-4">
             {/* Contact Info */}
             <div className={`hidden sm:flex items-center space-x-2 text-sm transition-colors duration-500 ${
-              scrolled ? 'text-[var(--ayurveda-green)]' : 'text-white'
+              scrolled ? 'text-black' : 'text-black'
             }`}>
               <Phone className="w-4 h-4" />
               <span>+94 11 123 4567</span>
@@ -112,7 +112,7 @@ export default function Header() {
               <Link
                 to="/orders"
                 className={`p-2 transition-colors relative ${
-                  scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
+                  scrolled ? 'text-black hover:text-gray-700' : 'text-black hover:text-[var(--ayurveda-green)]'
                 }`}
               >
                 <ShoppingBag className="h-4 w-4 md:h-5 md:w-5" />
@@ -124,7 +124,7 @@ export default function Header() {
               <a
                 href="tel:+94111234567"
                 className={`flex items-center space-x-1 p-2 transition-colors text-sm ${
-                  scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
+                  scrolled ? 'text-black hover:text-gray-700' : 'text-black hover:text-[var(--ayurveda-green)]'
                 }`}
               >
                 <Phone className="h-4 w-4" />
@@ -135,7 +135,7 @@ export default function Header() {
               <Link
                 to="/login"
                 className={`flex items-center space-x-1 transition-colors text-sm ${
-                  scrolled ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)]' : 'text-white hover:text-[var(--ayurveda-gold)]'
+                  scrolled ? 'text-black hover:text-gray-700' : 'text-black hover:text-[var(--ayurveda-green)]'
                 }`}
               >
                 <User className="h-4 w-4 md:h-5 md:w-5" />
@@ -169,7 +169,7 @@ export default function Header() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className={`transition-colors duration-500 ${
-                scrolled ? 'text-[var(--ayurveda-green)]' : 'text-white'
+                scrolled ? 'text-black' : 'text-black'
               }`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -204,11 +204,11 @@ export default function Header() {
                 className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
                   isActive(item.href)
                     ? scrolled 
-                      ? 'text-[var(--ayurveda-green)] bg-[var(--ayurveda-cream)] shadow-sm' 
-                      : 'text-[var(--ayurveda-gold)] bg-white/20 shadow-sm'
+                      ? 'text-black bg-gray-100 shadow-sm' 
+                      : 'text-[var(--ayurveda-green)] bg-black/20 shadow-sm'
                     : scrolled 
-                      ? 'text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-sage)] hover:bg-[var(--ayurveda-cream)]/50' 
-                      : 'text-white hover:text-[var(--ayurveda-gold)] hover:bg-white/10'
+                      ? 'text-black hover:text-gray-700 hover:bg-gray-100/50' 
+                      : 'text-black hover:text-[var(--ayurveda-green)] hover:bg-black/10'
                 }`}
               >
                 {item.name}
@@ -218,8 +218,8 @@ export default function Header() {
                     layoutId="activeTabMobile"
                     className={`absolute left-0 top-0 bottom-0 w-1 rounded-r-full ${
                       scrolled 
-                        ? 'bg-[var(--ayurveda-green)]' 
-                        : 'bg-[var(--ayurveda-gold)]'
+                        ? 'bg-black' 
+                        : 'bg-[var(--ayurveda-green)]'
                     }`}
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -232,7 +232,7 @@ export default function Header() {
           <div className="pt-4 border-t border-white/20">
             {/* Mobile Contact Info */}
             <div className={`flex items-center space-x-2 text-sm mb-3 transition-colors duration-500 ${
-              scrolled ? 'text-[var(--ayurveda-green)]' : 'text-white'
+              scrolled ? 'text-black' : 'text-black'
             }`}>
               <Phone className="w-4 h-4" />
               <span>+94 11 123 4567</span>
@@ -246,8 +246,8 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}
                 className={`flex items-center justify-center space-x-2 w-full text-center py-2 text-sm border rounded-md transition-colors relative ${
                   scrolled 
-                    ? 'text-[var(--ayurveda-green)] border-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-cream)]' 
-                    : 'text-white border-white/30 hover:bg-white/10'
+                    ? 'text-black border-black hover:bg-gray-100' 
+                    : 'text-black border-black/30 hover:bg-black/10'
                 }`}
               >
                 <ShoppingBag className="w-4 h-4" />
@@ -259,8 +259,8 @@ export default function Header() {
                 href="tel:+94111234567"
                 className={`flex items-center justify-center space-x-2 w-full text-center py-2 text-sm border rounded-md transition-colors ${
                   scrolled 
-                    ? 'text-[var(--ayurveda-green)] border-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-cream)]' 
-                    : 'text-white border-white/30 hover:bg-white/10'
+                    ? 'text-black border-black hover:bg-gray-100' 
+                    : 'text-black border-black/30 hover:bg-black/10'
                 }`}
               >
                 <Phone className="w-4 h-4" />
@@ -273,8 +273,8 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}
                 className={`block w-full text-center py-2 text-sm border rounded-md transition-colors ${
                   scrolled 
-                    ? 'text-[var(--ayurveda-green)] border-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-cream)]' 
-                    : 'text-white border-white/30 hover:bg-white/10'
+                    ? 'text-black border-black hover:bg-gray-100' 
+                    : 'text-black border-black/30 hover:bg-black/10'
                 }`}
               >
                 Login
