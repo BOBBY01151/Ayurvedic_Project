@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import { Clock, Star, Filter, Search, Leaf, Heart, Zap, Shield, Sun, Moon, Flower, TreePine } from 'lucide-react'
 import Footer from '../components/Footer'
 
 export default function Treatments() {
   const { t } = useTranslation()
+  const { scrollY } = useScroll()
   const [treatments, setTreatments] = useState([])
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState({
@@ -14,6 +16,11 @@ export default function Treatments() {
     duration: '',
     search: ''
   })
+
+  // Parallax transforms for different elements
+  const headerY = useTransform(scrollY, [0, 1000], [0, -100])
+  const filtersY = useTransform(scrollY, [0, 1000], [0, -120])
+  const treatmentsY = useTransform(scrollY, [0, 1000], [0, -150])
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -117,43 +124,59 @@ export default function Treatments() {
 
   if (loading) {
     return (
-      <div 
-        className="min-h-screen flex items-center justify-center pt-20"
-        style={{
-          backgroundImage: "url('/images/untitled-design.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--ayurveda-green)] mx-auto mb-4"></div>
-          <p className="text-[var(--ayurveda-green)]">Loading treatments...</p>
+      <div className="min-h-screen overflow-x-hidden relative">
+        {/* Fixed Background Image */}
+        <div 
+          className="fixed inset-0 w-full h-full z-0"
+          style={{
+            backgroundImage: "url('/images/untitled-design.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
+          }}
+        />
+        
+        {/* Loading Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-screen pt-20">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--ayurveda-green)] mx-auto mb-4"></div>
+            <p className="text-[var(--ayurveda-green)]">Loading treatments...</p>
+          </div>
         </div>
       </div>
     )
   }
 
   return (
-    <div 
-      className="min-h-screen overflow-x-hidden"
-      style={{
-        backgroundImage: "url('/images/untitled-design.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8 bg-transparent">
+    <div className="min-h-screen overflow-x-hidden relative">
+      {/* Fixed Background Image */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: "url('/images/untitled-design.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      />
+      
+      {/* Content with Parallax Effects */}
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8 bg-transparent">
         {/* Header */}
-        <div className="text-center mb-8 bg-transparent">
+        <motion.div 
+          className="text-center mb-8 bg-transparent"
+          style={{ y: headerY }}
+        >
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--ayurveda-green)] mb-4">
             {t('treatments.title')}
           </h1>
           <p className="text-xl text-[var(--ayurveda-green)]/70 max-w-2xl mx-auto">
             {t('treatments.subtitle')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Animated Ayurvedic Icons Section */}
         <div className="relative overflow-hidden mb-8 h-24">
@@ -233,7 +256,10 @@ export default function Treatments() {
         </div>
 
         {/* Filters */}
-        <div className="p-6 mb-8 bg-transparent">
+        <motion.div 
+          className="p-6 mb-8 bg-transparent"
+          style={{ y: filtersY }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="relative">
@@ -298,12 +324,22 @@ export default function Treatments() {
               <option value="120">2 hours</option>
             </select>
           </div>
-        </div>
+        </motion.div>
 
         {/* Treatments Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 bg-transparent">
-          {filteredTreatments.map((treatment) => (
-            <div key={treatment.id} className="bg-transparent rounded-xl overflow-hidden transition-all duration-300 border border-[var(--ayurveda-green)]/20 hover:scale-105 w-full">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 bg-transparent"
+          style={{ y: treatmentsY }}
+        >
+          {filteredTreatments.map((treatment, index) => (
+            <motion.div 
+              key={treatment.id} 
+              className="bg-transparent rounded-xl overflow-hidden transition-all duration-300 border border-[var(--ayurveda-green)]/20 hover:scale-105 w-full"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
               <div className="h-48 bg-transparent flex items-center justify-center">
                 <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]" />
               </div>
@@ -349,17 +385,24 @@ export default function Treatments() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {filteredTreatments.length === 0 && (
-          <div className="text-center py-12">
+          <motion.div 
+            className="text-center py-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <Leaf className="h-16 w-16 text-[var(--ayurveda-green)]/40 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-[var(--ayurveda-green)] mb-2">No treatments found</h3>
             <p className="text-[var(--ayurveda-green)]/70">Try adjusting your filters to see more results.</p>
-          </div>
+          </motion.div>
         )}
+        </div>
       </div>
       
       {/* Footer */}
