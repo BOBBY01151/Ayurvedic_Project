@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   Leaf, 
   MapPin, 
@@ -161,12 +162,21 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link}>
-                  <a 
-                    href="#"
-                    className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
-                  >
-                    {link}
-                  </a>
+                  {link === 'Privacy Policy' ? (
+                    <Link 
+                      to="/privacy-policy"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </Link>
+                  ) : (
+                    <a 
+                      href="#"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -244,9 +254,9 @@ export default function Footer() {
             <a href="#" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
