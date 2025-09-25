@@ -28,7 +28,7 @@ export default function Treatments() {
   }, [])
 
   useEffect(() => {
-    // Simulate API call
+    // Simulate API call with Ayurvedic loading
     setTimeout(() => {
       setTreatments([
         {
@@ -99,7 +99,7 @@ export default function Treatments() {
         }
       ])
       setLoading(false)
-    }, 1000)
+    }, 3000) // 3 seconds for Ayurvedic loading
   }, [])
 
   const categories = [
@@ -138,10 +138,97 @@ export default function Treatments() {
         />
         
         {/* Loading Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen pt-20">
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--ayurveda-green)] mx-auto mb-4"></div>
-            <p className="text-[var(--ayurveda-green)]">Loading treatments...</p>
+            {/* Ayurvedic Loading Animation */}
+            <div className="relative mb-8">
+              {/* Rotating Mandala */}
+              <motion.div
+                className="w-24 h-24 mx-auto mb-4"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-full h-full border-4 border-[var(--ayurveda-green)]/30 rounded-full relative">
+                  <div className="absolute inset-2 border-2 border-[var(--ayurveda-sage)]/50 rounded-full"></div>
+                  <div className="absolute inset-4 border border-[var(--ayurveda-earth)]/70 rounded-full"></div>
+                </div>
+              </motion.div>
+              
+              {/* Pulsing Center */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[var(--ayurveda-green)] rounded-full"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              
+              {/* Floating Ayurvedic Icons */}
+              <motion.div
+                className="absolute -top-2 -left-2"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+              >
+                <Leaf className="h-6 w-6 text-[var(--ayurveda-green)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -top-2 -right-2"
+                animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <Heart className="h-6 w-6 text-[var(--ayurveda-earth)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-2 -left-2"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              >
+                <Flower className="h-6 w-6 text-[var(--ayurveda-sage)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-2 -right-2"
+                animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+              >
+                <Sun className="h-6 w-6 text-[var(--ayurveda-gold)]" />
+              </motion.div>
+            </div>
+            
+            {/* Loading Text */}
+            <motion.h2
+              className="text-2xl font-bold text-[var(--ayurveda-green)] mb-4"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Discovering Treatments...
+            </motion.h2>
+            
+            {/* Progress Dots */}
+            <div className="flex justify-center space-x-2">
+              {[0, 1, 2].map((index) => (
+                <motion.div
+                  key={index}
+                  className="w-3 h-3 bg-[var(--ayurveda-green)] rounded-full"
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity, 
+                    delay: index * 0.2 
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Ayurvedic Quote */}
+            <motion.p
+              className="text-[var(--ayurveda-green)]/70 mt-6 max-w-md mx-auto text-sm italic"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 1 }}
+            >
+              "The body is the temple of the soul, treat it with reverence"
+            </motion.p>
           </div>
         </div>
       </div>
