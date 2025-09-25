@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { Eye, EyeOff, Mail, Lock, Leaf } from 'lucide-react'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { Eye, EyeOff, Mail, Lock, Leaf, Heart, Sun, Flower } from 'lucide-react'
 import { login } from '../store/slices/authSlice'
 import toast from 'react-hot-toast'
 import Footer from '../components/Footer'
@@ -11,12 +12,27 @@ export default function Login() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { scrollY } = useScroll()
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
   const [loading, setLoading] = useState(false)
+  const [pageLoading, setPageLoading] = useState(true)
+
+  // Parallax transforms for different elements
+  const headerY = useTransform(scrollY, [0, 1000], [0, -100])
+  const formY = useTransform(scrollY, [0, 1000], [0, -120])
+
+  useEffect(() => {
+    // Simulate loading time with Ayurvedic theme
+    const timer = setTimeout(() => {
+      setPageLoading(false)
+    }, 3000) // 3 seconds loading time
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -40,126 +56,274 @@ export default function Login() {
     }
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center">
-          <Leaf className="h-12 w-12 text-emerald-600" />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
-          {t('auth.login.title')}
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          {t('auth.login.subtitle')}
-        </p>
-      </div>
-
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                {t('auth.login.email')}
-              </label>
-              <div className="mt-1 relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                {t('auth.login.password')}
-              </label>
-              <div className="mt-1 relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  autoComplete="current-password"
-                  required
-                  className="appearance-none block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <button
-                    type="button"
-                    className="text-gray-400 hover:text-gray-600"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <EyeOff className="h-5 w-5" />
-                    ) : (
-                      <Eye className="h-5 w-5" />
-                    )}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  {t('auth.login.remember_me')}
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-emerald-600 hover:text-emerald-500">
-                  {t('auth.login.forgot_password')}
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed"
+  // Loading Component
+  if (pageLoading) {
+    return (
+      <div className="min-h-screen overflow-x-hidden relative">
+        {/* Fixed Background Image */}
+        <div 
+          className="fixed inset-0 w-full h-full z-0"
+          style={{
+            backgroundImage: "url('/images/png22.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
+          }}
+        />
+        
+        {/* Loading Content */}
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            {/* Ayurvedic Loading Animation */}
+            <div className="relative mb-8">
+              {/* Rotating Mandala */}
+              <motion.div
+                className="w-24 h-24 mx-auto mb-4"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                {loading ? (
-                  <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Signing in...
-                  </div>
-                ) : (
-                  t('auth.login.sign_in')
-                )}
-              </button>
+                <div className="w-full h-full border-4 border-[var(--ayurveda-green)]/30 rounded-full relative">
+                  <div className="absolute inset-2 border-2 border-[var(--ayurveda-sage)]/50 rounded-full"></div>
+                  <div className="absolute inset-4 border border-[var(--ayurveda-earth)]/70 rounded-full"></div>
+                </div>
+              </motion.div>
+              
+              {/* Pulsing Center */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[var(--ayurveda-green)] rounded-full"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              
+              {/* Floating Ayurvedic Icons */}
+              <motion.div
+                className="absolute -top-2 -left-2"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+              >
+                <Leaf className="h-6 w-6 text-[var(--ayurveda-green)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -top-2 -right-2"
+                animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <Heart className="h-6 w-6 text-[var(--ayurveda-earth)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-2 -left-2"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              >
+                <Flower className="h-6 w-6 text-[var(--ayurveda-sage)]" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-2 -right-2"
+                animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+              >
+                <Sun className="h-6 w-6 text-[var(--ayurveda-gold)]" />
+              </motion.div>
             </div>
+            
+            {/* Loading Text */}
+            <motion.h2
+              className="text-2xl font-bold text-[var(--ayurveda-green)] mb-4"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Preparing Your Journey...
+            </motion.h2>
+            
+            {/* Progress Dots */}
+            <div className="flex justify-center space-x-2">
+              {[0, 1, 2].map((index) => (
+                <motion.div
+                  key={index}
+                  className="w-3 h-3 bg-[var(--ayurveda-green)] rounded-full"
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity, 
+                    delay: index * 0.2 
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Ayurvedic Quote */}
+            <motion.p
+              className="text-[var(--ayurveda-green)]/70 mt-6 max-w-md mx-auto text-sm italic"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 1 }}
+            >
+              "The journey of a thousand miles begins with a single step"
+            </motion.p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
-            <div className="text-center">
-              <span className="text-sm text-gray-600">
-                {t('auth.login.no_account')}{' '}
-                <Link to="/register" className="font-medium text-emerald-600 hover:text-emerald-500">
-                  {t('auth.login.sign_up')}
-                </Link>
-              </span>
+  return (
+    <div className="min-h-screen overflow-x-hidden relative">
+      {/* Fixed Background Image */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: "url('/images/png22.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      />
+      
+      {/* Content with Parallax Effects */}
+      <div className="relative z-10">
+        <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <motion.div 
+            className="sm:mx-auto sm:w-full sm:max-w-md"
+            style={{ y: headerY }}
+          >
+            <div className="flex justify-center">
+              <Leaf className="h-12 w-12 text-[var(--ayurveda-green)]" />
             </div>
-          </form>
+            <h2 className="mt-6 text-center text-3xl font-bold text-[var(--ayurveda-green)]">
+              {t('auth.login.title')}
+            </h2>
+            <p className="mt-2 text-center text-sm text-[var(--ayurveda-green)]/70">
+              {t('auth.login.subtitle')}
+            </p>
+          </motion.div>
+
+          {/* Login Form */}
+          <motion.div 
+            className="mt-8 sm:mx-auto sm:w-full sm:max-w-md"
+            style={{ y: formY }}
+          >
+            <motion.div 
+              className="bg-transparent border border-[var(--ayurveda-green)]/20 py-8 px-4 shadow-lg sm:rounded-lg sm:px-10"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-[var(--ayurveda-green)]">
+                    {t('auth.login.email')}
+                  </label>
+                  <div className="mt-1 relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Mail className="h-5 w-5 text-[var(--ayurveda-green)]/60" />
+                    </div>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      className="appearance-none block w-full pl-10 pr-3 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-md placeholder-[var(--ayurveda-green)]/50 focus:outline-none focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] sm:text-sm text-[var(--ayurveda-green)]"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-[var(--ayurveda-green)]">
+                    {t('auth.login.password')}
+                  </label>
+                  <div className="mt-1 relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-[var(--ayurveda-green)]/60" />
+                    </div>
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? 'text' : 'password'}
+                      autoComplete="current-password"
+                      required
+                      className="appearance-none block w-full pl-10 pr-10 py-2 bg-transparent border border-[var(--ayurveda-green)]/30 rounded-md placeholder-[var(--ayurveda-green)]/50 focus:outline-none focus:ring-[var(--ayurveda-green)] focus:border-[var(--ayurveda-green)] sm:text-sm text-[var(--ayurveda-green)]"
+                      placeholder="Enter your password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                      <button
+                        type="button"
+                        className="text-[var(--ayurveda-green)]/60 hover:text-[var(--ayurveda-green)]"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <EyeOff className="h-5 w-5" />
+                        ) : (
+                          <Eye className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <input
+                      id="remember-me"
+                      name="remember-me"
+                      type="checkbox"
+                      className="h-4 w-4 text-[var(--ayurveda-green)] focus:ring-[var(--ayurveda-green)] border-[var(--ayurveda-green)]/30 rounded bg-transparent"
+                    />
+                    <label htmlFor="remember-me" className="ml-2 block text-sm text-[var(--ayurveda-green)]">
+                      {t('auth.login.remember_me')}
+                    </label>
+                  </div>
+
+                  <div className="text-sm">
+                    <a href="#" className="font-medium text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-green)]/80">
+                      {t('auth.login.forgot_password')}
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <motion.button
+                    type="submit"
+                    disabled={loading}
+                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[var(--ayurveda-green)] hover:bg-[var(--ayurveda-sage)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--ayurveda-green)] disabled:opacity-50 disabled:cursor-not-allowed"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {loading ? (
+                      <div className="flex items-center">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Signing in...
+                      </div>
+                    ) : (
+                      t('auth.login.sign_in')
+                    )}
+                  </motion.button>
+                </div>
+
+                <div className="text-center">
+                  <span className="text-sm text-[var(--ayurveda-green)]/70">
+                    {t('auth.login.no_account')}{' '}
+                    <Link to="/register" className="font-medium text-[var(--ayurveda-green)] hover:text-[var(--ayurveda-green)]/80">
+                      {t('auth.login.sign_up')}
+                    </Link>
+                  </span>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       
