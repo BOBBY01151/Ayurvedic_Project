@@ -258,9 +258,9 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
+            <Link to="/terms-of-service" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
               Terms of Service
-            </a>
+            </Link>
             <Link to="/privacy-policy" className="text-sm text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors">
               Privacy Policy
             </Link>

@@ -21,6 +21,7 @@ import FAQ from './pages/FAQ'
 import AboutSriLanka from './pages/AboutSriLanka'
 import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminTreatments from './pages/AdminTreatments'
 import AdminPackages from './pages/AdminPackages'
@@ -47,6 +48,7 @@ function App() {
           <Route path="/about-sri-lanka" element={<AboutSriLanka />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           
           {/* Auth Routes */}
           <Route path="/login" element={<Login />} />
