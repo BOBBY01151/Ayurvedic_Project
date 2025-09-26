@@ -169,6 +169,13 @@ export default function Footer() {
                     >
                       {link}
                     </Link>
+                  ) : link === 'FAQ' ? (
+                    <Link 
+                      to="/faq"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </Link>
                   ) : (
                     <a 
                       href="#"
