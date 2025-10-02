@@ -23,6 +23,7 @@ import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminLogin from './pages/AdminLogin'
 import AdminTreatments from './pages/AdminTreatments'
 import AdminPackages from './pages/AdminPackages'
 import AdminBookings from './pages/AdminBookings'
@@ -62,6 +63,7 @@ function App() {
           <Route path="/orders/:id" element={<OrderDetail />} />
           
           {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/treatments" element={<AdminTreatments />} />
           <Route path="/admin/packages" element={<AdminPackages />} />
