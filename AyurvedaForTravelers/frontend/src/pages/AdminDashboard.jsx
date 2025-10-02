@@ -8,7 +8,9 @@ import {
   Activity,
   BarChart3,
   PieChart,
-  Plus
+  Plus,
+  Calendar,
+  Users
 } from 'lucide-react'
 import { AdminCard, AdminTable, AdminSidebar, AdminHeader } from '../components/admin'
 
