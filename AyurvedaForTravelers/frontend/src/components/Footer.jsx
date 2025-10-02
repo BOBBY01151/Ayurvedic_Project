@@ -183,6 +183,27 @@ export default function Footer() {
                     >
                       {link}
                     </Link>
+                  ) : link === 'About Us' ? (
+                    <Link 
+                      to="/about-sri-lanka"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </Link>
+                  ) : link === 'Our Doctors' ? (
+                    <Link 
+                      to="/therapists"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </Link>
+                  ) : link === 'Testimonials' ? (
+                    <a 
+                      href="#testimonials"
+                      className="text-[var(--ayurveda-green)]/70 hover:text-[var(--ayurveda-green)] transition-colors text-sm"
+                    >
+                      {link}
+                    </a>
                   ) : (
                     <a 
                       href="#"
