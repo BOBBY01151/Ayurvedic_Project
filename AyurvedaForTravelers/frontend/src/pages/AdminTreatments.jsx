@@ -49,13 +49,13 @@ export default function AdminTreatments() {
 
   // Enhanced treatments data
   const [treatments, setTreatments] = useState([
-    {
-      id: 1,
-      name: 'Ayurvedic Massage',
+    { 
+      id: 1, 
+      name: 'Ayurvedic Massage', 
       category: 'Massage Therapy',
       duration: 90,
       price: 120,
-      status: 'active',
+      status: 'active', 
       rating: 4.8,
       totalBookings: 156,
       revenue: 18720,
@@ -68,13 +68,13 @@ export default function AdminTreatments() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-15T00:00:00Z'
     },
-    {
-      id: 2,
+    { 
+      id: 2, 
       name: 'Panchakarma Therapy',
       category: 'Detoxification',
       duration: 180,
       price: 350,
-      status: 'active',
+      status: 'active', 
       rating: 4.9,
       totalBookings: 89,
       revenue: 31150,
@@ -87,13 +87,13 @@ export default function AdminTreatments() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-10T00:00:00Z'
     },
-    {
-      id: 3,
+    { 
+      id: 3, 
       name: 'Herbal Consultation',
-      category: 'Wellness',
+      category: 'Wellness', 
       duration: 60,
       price: 85,
-      status: 'active',
+      status: 'active', 
       rating: 4.7,
       totalBookings: 234,
       revenue: 19890,
@@ -106,13 +106,13 @@ export default function AdminTreatments() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-12T00:00:00Z'
     },
-    {
-      id: 4,
-      name: 'Yoga Session',
+    { 
+      id: 4, 
+      name: 'Yoga Session', 
       category: 'Mind-Body Wellness',
       duration: 75,
       price: 60,
-      status: 'active',
+      status: 'active', 
       rating: 4.6,
       totalBookings: 445,
       revenue: 26700,
@@ -125,10 +125,10 @@ export default function AdminTreatments() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-08T00:00:00Z'
     },
-    {
-      id: 5,
+    { 
+      id: 5, 
       name: 'Meditation Session',
-      category: 'Mindfulness',
+      category: 'Mindfulness', 
       duration: 45,
       price: 40,
       status: 'active',
@@ -298,7 +298,7 @@ export default function AdminTreatments() {
       }
 
       setShowCreateModal(false)
-      setEditingTreatment(null)
+    setEditingTreatment(null)
       setSaving(false)
     }, 1000)
   }
@@ -309,6 +309,9 @@ export default function AdminTreatments() {
     price: `$${treatment.price}`,
     rating: treatment.rating.toFixed(1)
   }))
+
+  // Define categories for the filter dropdown
+  const categories = ['all', 'Massage Therapy', 'Detoxification', 'Wellness', 'Mind-Body Wellness', 'Mindfulness']
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -579,7 +582,7 @@ export default function AdminTreatments() {
                           defaultValue={editingTreatment?.price || ''}
                           required
                         />
-                      </div>
+                  </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -669,8 +672,8 @@ export default function AdminTreatments() {
                           placeholder="Pregnancy, Acute illness, Open wounds"
                           defaultValue={editingTreatment?.contraindications?.join(', ') || ''}
                         />
-                      </div>
                     </div>
+                  </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -683,17 +686,17 @@ export default function AdminTreatments() {
                         placeholder="Massage table, Herbal oils, Towels"
                         defaultValue={editingTreatment?.equipment?.join(', ') || ''}
                       />
-                    </div>
+                  </div>
 
                     <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
-                      <button
+                      <button 
                         type="button"
                         onClick={() => setShowCreateModal(false)}
                         className="px-6 py-3 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 font-medium"
                       >
                         Cancel
                       </button>
-                      <button
+                      <button 
                         type="submit"
                         disabled={saving}
                         className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors duration-200 font-medium flex items-center"

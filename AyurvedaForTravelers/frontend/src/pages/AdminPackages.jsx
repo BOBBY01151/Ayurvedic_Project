@@ -53,13 +53,13 @@ export default function AdminPackages() {
 
   // Enhanced packages data
   const [packages, setPackages] = useState([
-    {
-      id: 1,
-      name: 'Wellness Retreat',
-      category: 'Wellness',
+    { 
+      id: 1, 
+      name: 'Wellness Retreat', 
+      category: 'Wellness', 
       duration: 7,
       price: 1200,
-      status: 'active',
+      status: 'active', 
       rating: 4.9,
       totalBookings: 89,
       revenue: 106800,
@@ -74,13 +74,13 @@ export default function AdminPackages() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-20T00:00:00Z'
     },
-    {
-      id: 2,
-      name: 'Detox & Rejuvenation',
+    { 
+      id: 2, 
+      name: 'Detox & Rejuvenation', 
       category: 'Detoxification',
       duration: 5,
       price: 850,
-      status: 'active',
+      status: 'active', 
       rating: 4.8,
       totalBookings: 67,
       revenue: 56950,
@@ -95,13 +95,13 @@ export default function AdminPackages() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-18T00:00:00Z'
     },
-    {
-      id: 3,
-      name: 'Yoga & Meditation',
-      category: 'Mindfulness',
+    { 
+      id: 3, 
+      name: 'Yoga & Meditation', 
+      category: 'Mindfulness', 
       duration: 3,
       price: 350,
-      status: 'active',
+      status: 'active', 
       rating: 4.7,
       totalBookings: 145,
       revenue: 50750,
@@ -116,13 +116,13 @@ export default function AdminPackages() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-15T00:00:00Z'
     },
-    {
-      id: 4,
-      name: 'Ayurvedic Healing',
-      category: 'Therapy',
+    { 
+      id: 4, 
+      name: 'Ayurvedic Healing', 
+      category: 'Therapy', 
       duration: 10,
       price: 1800,
-      status: 'active',
+      status: 'active', 
       rating: 4.9,
       totalBookings: 34,
       revenue: 61200,
@@ -137,13 +137,13 @@ export default function AdminPackages() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-22T00:00:00Z'
     },
-    {
-      id: 5,
-      name: 'Luxury Spa Package',
-      category: 'Luxury',
+    { 
+      id: 5, 
+      name: 'Luxury Spa Package', 
+      category: 'Luxury', 
       duration: 4,
       price: 1500,
-      status: 'active',
+      status: 'active', 
       rating: 4.8,
       totalBookings: 78,
       revenue: 117000,
@@ -158,13 +158,13 @@ export default function AdminPackages() {
       createdAt: '2024-01-01T00:00:00Z',
       updatedAt: '2024-01-25T00:00:00Z'
     },
-    {
-      id: 6,
-      name: 'Family Wellness',
-      category: 'Family',
+    { 
+      id: 6, 
+      name: 'Family Wellness', 
+      category: 'Family', 
       duration: 6,
       price: 950,
-      status: 'inactive',
+      status: 'inactive', 
       rating: 4.6,
       totalBookings: 23,
       revenue: 21850,
@@ -318,7 +318,7 @@ export default function AdminPackages() {
       }
 
       setShowCreateModal(false)
-      setEditingPackage(null)
+    setEditingPackage(null)
       setSaving(false)
     }, 1000)
   }
@@ -329,6 +329,9 @@ export default function AdminPackages() {
     price: `$${pkg.price.toLocaleString()}`,
     rating: pkg.rating.toFixed(1)
   }))
+
+  // Define categories for the filter dropdown
+  const categories = ['all', 'Wellness', 'Detoxification', 'Mindfulness', 'Therapy', 'Luxury', 'Family']
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -602,7 +605,7 @@ export default function AdminPackages() {
                           defaultValue={editingPackage?.duration || ''}
                           required
                         />
-                      </div>
+                  </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -720,7 +723,7 @@ export default function AdminPackages() {
                           placeholder="WiFi, Air Conditioning, Spa Access, Pool"
                           defaultValue={editingPackage?.amenities?.join(', ') || ''}
                         />
-                      </div>
+                  </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -734,7 +737,7 @@ export default function AdminPackages() {
                           defaultValue={editingPackage?.transportation || ''}
                         />
                       </div>
-                    </div>
+                  </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -747,17 +750,17 @@ export default function AdminPackages() {
                         placeholder="Travel Insurance Included"
                         defaultValue={editingPackage?.insurance || ''}
                       />
-                    </div>
+                  </div>
 
                     <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
-                      <button
+                      <button 
                         type="button"
                         onClick={() => setShowCreateModal(false)}
                         className="px-6 py-3 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-200 font-medium"
                       >
                         Cancel
                       </button>
-                      <button
+                      <button 
                         type="submit"
                         disabled={saving}
                         className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors duration-200 font-medium flex items-center"
