@@ -38,7 +38,7 @@ const AdminTable = ({
       )
     }
     
-    if (column.key === 'avatar' && item[column.key]) {
+    if (column.key === 'avatar') {
       return (
         <div className="flex items-center">
           <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
@@ -47,7 +47,7 @@ const AdminTable = ({
             </span>
           </div>
           <div className="ml-3">
-            <div className="text-sm font-medium text-gray-900">{item.name || item[column.key]}</div>
+            <div className="text-sm font-medium text-gray-900">{item.name || 'Unknown User'}</div>
           </div>
         </div>
       )

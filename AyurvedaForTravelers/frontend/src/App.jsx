@@ -28,6 +28,7 @@ import AdminTreatments from './pages/AdminTreatments'
 import AdminPackages from './pages/AdminPackages'
 import AdminBookings from './pages/AdminBookings'
 import AdminArticles from './pages/AdminArticles'
+import AdminUsers from './pages/AdminUsers'
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
           <Route path="/admin/packages" element={<AdminPackages />} />
           <Route path="/admin/bookings" element={<AdminBookings />} />
           <Route path="/admin/articles" element={<AdminArticles />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
           
           {/* 404 Route */}
           <Route path="*" element={
