@@ -20,15 +20,20 @@ const AdminTable = ({
       case 'cancelled': return 'bg-red-100 text-red-800'
       case 'active': return 'bg-green-100 text-green-800'
       case 'inactive': return 'bg-gray-100 text-gray-800'
+      case 'published': return 'bg-green-100 text-green-800'
+      case 'draft': return 'bg-yellow-100 text-yellow-800'
+      case 'scheduled': return 'bg-blue-100 text-blue-800'
+      case 'archived': return 'bg-gray-100 text-gray-800'
       default: return 'bg-gray-100 text-gray-800'
     }
   }
 
   const renderCellContent = (item, column) => {
     if (column.key === 'status') {
+      const status = item[column.key]
       return (
-        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(item[column.key])}`}>
-          {item[column.key]}
+        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(status)}`}>
+          {status ? status.charAt(0).toUpperCase() + status.slice(1) : status}
         </span>
       )
     }
