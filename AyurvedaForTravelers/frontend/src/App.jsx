@@ -29,6 +29,7 @@ import AdminPackages from './pages/AdminPackages'
 import AdminBookings from './pages/AdminBookings'
 import AdminArticles from './pages/AdminArticles'
 import AdminUsers from './pages/AdminUsers'
+import AdminSettings from './pages/AdminSettings'
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
           <Route path="/admin/bookings" element={<AdminBookings />} />
           <Route path="/admin/articles" element={<AdminArticles />} />
           <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
           
           {/* 404 Route */}
           <Route path="*" element={
